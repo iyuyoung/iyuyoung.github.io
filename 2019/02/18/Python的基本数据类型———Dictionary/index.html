@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="http://img.0558web.com/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="字典是一组无序的集合，由key和vlaue组成，通过key映射你想要存储或者获取的内容， Python中的字典就像现实世界中的字典一样，都可以通过索引找到对应的值  创建字典字典的创建方式和集合一样，也是在{}中用逗号隔开每组元素，不同的是字典中的每组元素有key:value组成，其中key是唯一的而且是不可变类型，value可以是任意类型，当然也可以重复。 123456789101112# 定">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的基本数据类型———Dictionary">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/Python的基本数据类型———Dictionary/index.html">
+<meta property="og:site_name" content="沐码人">
+<meta property="og:description" content="字典是一组无序的集合，由key和vlaue组成，通过key映射你想要存储或者获取的内容， Python中的字典就像现实世界中的字典一样，都可以通过索引找到对应的值  创建字典字典的创建方式和集合一样，也是在{}中用逗号隔开每组元素，不同的是字典中的每组元素有key:value组成，其中key是唯一的而且是不可变类型，value可以是任意类型，当然也可以重复。 123456789101112# 定">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-18T09:09:18.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python的基本数据类型———Dictionary">
+<meta name="twitter:description" content="字典是一组无序的集合，由key和vlaue组成，通过key映射你想要存储或者获取的内容， Python中的字典就像现实世界中的字典一样，都可以通过索引找到对应的值  创建字典字典的创建方式和集合一样，也是在{}中用逗号隔开每组元素，不同的是字典中的每组元素有key:value组成，其中key是唯一的而且是不可变类型，value可以是任意类型，当然也可以重复。 123456789101112# 定">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/Python的基本数据类型———Dictionary/">
+
+
+
+
+
+  <title>Python的基本数据类型———Dictionary | 沐码人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">沐码人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">代码给我更多自由</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/Python的基本数据类型———Dictionary/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/02/12/kdrUuq.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="沐码人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python的基本数据类型———Dictionary</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T17:04:25+08:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>字典是一组无序的集合，由key和vlaue组成，通过key映射你想要存储或者获取的内容， Python中的字典就像现实世界中的字典一样，都可以通过索引找到对应的值</p>
+</blockquote>
+<h1 id="创建字典"><a href="#创建字典" class="headerlink" title="创建字典"></a>创建字典</h1><p>字典的创建方式和集合一样，也是在{}中用逗号隔开每组元素，不同的是字典中的每组元素有key:value组成，其中key是唯一的而且是不可变类型，value可以是任意类型，当然也可以重复。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义一个空字典</span></span><br><span class="line">a=&#123;&#125;</span><br><span class="line">print(type(a))</span><br><span class="line"><span class="comment"># 输出 dict</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个字典</span></span><br><span class="line">a=&#123;<span class="string">'cn'</span>:<span class="string">"China"</span>,<span class="string">'us'</span>:<span class="string">'United States of America'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把列表转为一个字典</span></span><br><span class="line">a=dict([(<span class="string">'a'</span>,<span class="string">'apple'</span>),(<span class="string">'b'</span>,<span class="string">'banana'</span>)])</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'a': 'apple', 'b': 'banana'&#125;</span></span><br></pre></td></tr></table></figure>
+<p>前面说过字典中的key必须是唯一的，那如果我们定义重复的key会怎样呢?下面通过代码来演示一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;<span class="string">'a'</span>:<span class="string">'Apple'</span>,<span class="string">'a'</span>:<span class="string">'banana'</span>&#125;</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'a': 'banana'&#125;</span></span><br><span class="line"></span><br><span class="line">b=dict([(<span class="number">1</span>,<span class="string">'key是1'</span>),(<span class="number">1</span>,<span class="string">'key是2'</span>),(<span class="number">1</span>,<span class="string">'key是3'</span>)])</span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># 输出&#123;1: 'key是3'&#125;</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的案例我们可以得出2点结论</p>
+<ul>
+<li>定义一个字典时出现重复的key不会报错</li>
+<li>相同的key会被后面的覆盖</li>
+</ul>
+<h1 id="访问字典中的元素"><a href="#访问字典中的元素" class="headerlink" title="访问字典中的元素"></a>访问字典中的元素</h1><p>因为字典是无序的集合，所以我们也不能通过索引和切片的方式访问，但是我们可以通过字典中的key来访问对应的value<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;&apos;a&apos;:&apos;Apple&apos;,&apos;b&apos;:&apos;banana&apos;&#125;</span><br><span class="line"></span><br><span class="line"># 第一种方式</span><br><span class="line">print(a[&apos;a&apos;])</span><br><span class="line"># 输出 &apos;Apple&apos;</span><br><span class="line"></span><br><span class="line"># 第二种方式</span><br><span class="line">print(a.get(&apos;b&apos;))</span><br><span class="line"># 输出 &apos;banana&apos;</span><br><span class="line"></span><br><span class="line"># 通过key用上面两种方式都可以对应的vaule</span><br><span class="line"></span><br><span class="line"># 但是第一种访问不存在的key会报错</span><br><span class="line">print(a[&apos;c&apos;])</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">KeyError: &apos;c&apos;</span><br><span class="line"></span><br><span class="line"># 使用get不仅不会报错，而且还可以设置默认值</span><br><span class="line">print(a.get(&apos;c&apos;,&apos;没找到c&apos;))</span><br><span class="line"># 输出 没找到c</span><br></pre></td></tr></table></figure></p>
+<h1 id="更新或添加元素"><a href="#更新或添加元素" class="headerlink" title="更新或添加元素"></a>更新或添加元素</h1><p>字典添加、更新元素没有像集合提供了很多种方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;<span class="string">'a'</span>:<span class="string">'Apple'</span>,<span class="string">'b'</span>:<span class="string">'Banana'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 </span></span><br><span class="line">a[<span class="string">'b'</span>]=<span class="string">'我要更新数据了'</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出  a=&#123;'a':'Apple','b':'我要更新数据了'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用update 添加</span></span><br><span class="line">a.update(&#123;<span class="string">'c'</span>:<span class="string">'使用update'</span>,<span class="string">'d'</span>:[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="keyword">True</span>]&#125;)</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'d': ['1', '2', True], 'a': 'Apple', 'c': '使用update', 'b': 'Banana'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加</span></span><br><span class="line">a[<span class="string">'e'</span>]=<span class="string">'我是新增的数据'</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'d': ['1', '2', True], 'e': '我是新增的数据', 'a': 'Apple', 'c': '使用update', 'b': 'Banana'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典是无序的集合 所以新增的数据位置在哪都一样</span></span><br></pre></td></tr></table></figure>
+<h1 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h1><p>访问元素的时候我们通过key,删除的时候我们也可以通过key来删除，下面我来演示4种方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;<span class="string">'a'</span>: <span class="string">'1'</span>, <span class="string">'b'</span>: <span class="string">'2'</span>, <span class="string">'c'</span>: <span class="string">'3'</span>,<span class="string">'d'</span>:<span class="string">'4'</span>,<span class="string">'e'</span>:<span class="string">'5'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用内置方法pop()</span></span><br><span class="line">a.pop(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment"># 返回 '1'</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'b': '2', 'c': '3','d':'4','e':'5'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过del删除</span></span><br><span class="line"><span class="keyword">del</span> a[<span class="string">'b'</span>]</span><br><span class="line"><span class="comment"># 输出 &#123;'c': '3','d':'4','e':'5'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用内置方法popitem()</span></span><br><span class="line">a.popitem()</span><br><span class="line"><span class="comment"># 返回('d', '4')</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;'e': '5', 'c': '3'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用内置方法清空字典</span></span><br><span class="line">a.clear()</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 输出 &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上述4种方法都可以删除元素，我们来总结一下他们之间的区别</p>
+<ul>
+<li>pop()</li>
+</ul>
+<p>通过key来删除元素，而且会返回被删除key对应的value</p>
+<ul>
+<li>del a[key]</li>
+</ul>
+<p>也是通过key来删除元素，但是不会返回值</p>
+<ul>
+<li>popitem() </li>
+</ul>
+<p>随机删除一对元素，且会返回被删除key和value组成的元组</p>
+<ul>
+<li>clear()</li>
+</ul>
+<p>清空字典</p>
+<h1 id="字典的一些基本操作"><a href="#字典的一些基本操作" class="headerlink" title="字典的一些基本操作"></a>字典的一些基本操作</h1><h3 id="获取字典中所有的key"><a href="#获取字典中所有的key" class="headerlink" title="获取字典中所有的key"></a>获取字典中所有的key</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3&#125;</span><br><span class="line">print(list(a.keys()))</span><br><span class="line"># 输出[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="获取字典中所有的value"><a href="#获取字典中所有的value" class="headerlink" title="获取字典中所有的value"></a>获取字典中所有的value</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3&#125;</span><br><span class="line">print(list(a.values()))</span><br><span class="line"># 输出[1,2,3]</span><br></pre></td></tr></table></figure>
+<h3 id="获取字典的长度"><a href="#获取字典的长度" class="headerlink" title="获取字典的长度"></a>获取字典的长度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3&#125;</span><br><span class="line">print(len(a))</span><br><span class="line"># 输出 3</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要重点掌握字典key和value的关系，熟练运用字典中添加和更新操作，字典是python中重要数据类型，以后项目中使用的很广泛</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://img.0558web.com/qrcode.png" alt="Yu Young wechat" style="width: 200px; max-width: 100%;">
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/18/Python的基本数据类型———List/" rel="next" title="Python的基本数据类型———List">
+                <i class="fa fa-chevron-left"></i> Python的基本数据类型———List
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/02/12/kdrUuq.png" alt="Yu Young">
+            
+              <p class="site-author-name" itemprop="name">Yu Young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iyuyoung" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhuanlan.zhihu.com/coder-house" target="_blank" title="知乎">
+                      
+                        <i class="iconfont icon-zhihu"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://jianshu.com/u/cdd043bb8498" target="_blank" title="简书">
+                      
+                        <i class="iconfont icon-weibiaoti-"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_31655741" target="_blank" title="CSDN">
+                      
+                        <i class="iconfont icon-csdn"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建字典"><span class="nav-number">1.</span> <span class="nav-text">创建字典</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问字典中的元素"><span class="nav-number">2.</span> <span class="nav-text">访问字典中的元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新或添加元素"><span class="nav-number">3.</span> <span class="nav-text">更新或添加元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除元素"><span class="nav-number">4.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典的一些基本操作"><span class="nav-number">5.</span> <span class="nav-text">字典的一些基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取字典中所有的key"><span class="nav-number">5.0.1.</span> <span class="nav-text">获取字典中所有的key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取字典中所有的value"><span class="nav-number">5.0.2.</span> <span class="nav-text">获取字典中所有的value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取字典的长度"><span class="nav-number">5.0.3.</span> <span class="nav-text">获取字典的长度</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Young</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">13.8k</span>
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

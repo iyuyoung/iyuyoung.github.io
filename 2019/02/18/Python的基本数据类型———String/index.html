@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://img.0558web.com/logo.svg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="http://img.0558web.com/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="String是一个Unicode字符序列，是Python中最重要的数据类型之一，可以使用单引号、双引号、三引号创建 字符串的创建 创建一个字符串  123a=&apos;1234&apos;b=&quot;hello world&quot;c=&apos;&apos;&apos;hello world 1234&apos;&apos;&apos; 既然单引号、双引号、三引号都可以创建字符串,那么他们的区别在哪呢？ 123456789101112131415161718# 单引号、双引号没有太大的">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的基本数据类型———String">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/Python的基本数据类型———String/index.html">
+<meta property="og:site_name" content="沐码人">
+<meta property="og:description" content="String是一个Unicode字符序列，是Python中最重要的数据类型之一，可以使用单引号、双引号、三引号创建 字符串的创建 创建一个字符串  123a=&apos;1234&apos;b=&quot;hello world&quot;c=&apos;&apos;&apos;hello world 1234&apos;&apos;&apos; 既然单引号、双引号、三引号都可以创建字符串,那么他们的区别在哪呢？ 123456789101112131415161718# 单引号、双引号没有太大的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-18T08:18:41.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python的基本数据类型———String">
+<meta name="twitter:description" content="String是一个Unicode字符序列，是Python中最重要的数据类型之一，可以使用单引号、双引号、三引号创建 字符串的创建 创建一个字符串  123a=&apos;1234&apos;b=&quot;hello world&quot;c=&apos;&apos;&apos;hello world 1234&apos;&apos;&apos; 既然单引号、双引号、三引号都可以创建字符串,那么他们的区别在哪呢？ 123456789101112131415161718# 单引号、双引号没有太大的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/Python的基本数据类型———String/">
+
+
+
+
+
+  <title>Python的基本数据类型———String | 沐码人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">沐码人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">代码给我更多自由</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/Python的基本数据类型———String/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/02/12/kdrUuq.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="沐码人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python的基本数据类型———String</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T15:38:48+08:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>String是一个Unicode字符序列，是Python中最重要的数据类型之一，可以使用单引号、双引号、三引号创建</p>
+<h1 id="字符串的创建"><a href="#字符串的创建" class="headerlink" title="字符串的创建"></a>字符串的创建</h1><blockquote>
+<p>创建一个字符串</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'1234'</span></span><br><span class="line">b=<span class="string">"hello world"</span></span><br><span class="line">c=<span class="string">'''hello world 1234'''</span></span><br></pre></td></tr></table></figure>
+<p>既然单引号、双引号、三引号都可以创建字符串,那么他们的区别在哪呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 单引号、双引号没有太大的区别</span></span><br><span class="line"><span class="comment"># 但是如果我们想输出 what's up ? 这样中间带有单引号的字符串时就要使用双引号 </span></span><br><span class="line">a=<span class="string">'hello world'</span></span><br><span class="line"><span class="comment"># 输出 hello world</span></span><br><span class="line"></span><br><span class="line">b=<span class="string">"what's up ?"</span></span><br><span class="line"><span class="comment"># 输出 what's up ?</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果我们输出一篇文章或者换行的时候可以试试三引号</span></span><br><span class="line">c=<span class="string">'''</span></span><br><span class="line"><span class="string">hello world </span></span><br><span class="line"><span class="string">hello world</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">hello world </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>字符串中的转义字符</p>
+</blockquote>
+<p>如何使用python打印这样一段字符串’D:Download/note/notebook’,使用print()直接能打印出来吗？我们来演示一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'D:Download\note\notebook'</span></span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line">D:Download</span><br><span class="line">ote</span><br><span class="line">otebook</span><br></pre></td></tr></table></figure>
+<p>结果不仅少了两个\n而且还换行了，这是因为\n是转义字符，会被当成换行符。<br>转义字符在字符串中使用的很广泛，下面我们通过代码了解一下转义字符以及用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们使用两种方式打印完整的路径</span></span><br><span class="line">a=<span class="string">'D:Download\note\notebook'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  通过在\n前面添加\</span></span><br><span class="line">print(<span class="string">'D:Download\\note\\notebook'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#  在字符串前添加r或R</span></span><br><span class="line">print(<span class="string">r'D:Download\note\notebook'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让hello world换行</span></span><br><span class="line">a=<span class="string">'hello world'</span></span><br><span class="line">print(<span class="string">'hello \nworld'</span>)</span><br></pre></td></tr></table></figure>
+<p>python中支持的转义字符有以下几种</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>python中输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>\</td>
+</tr>
+<tr>
+<td>\’</td>
+<td>‘(单引号)</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>“(双引号)</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>响铃(输出有声音)</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退后一格</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页(打印)</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>纵向制表符</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>怎么访问字符串中的字符</p>
+</blockquote>
+<p>可以通过切片、索引访问字符串中的字符，和大多数语言一样，索引是从0开始并且必须是整型</p>
+<p>我们先来看看索引的使用方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'Hello world,你好 世界'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取第一个字符</span></span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 输出 H </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取w</span></span><br><span class="line">print(a[<span class="number">6</span>])</span><br><span class="line"><span class="comment"># 输出 w </span></span><br><span class="line"><span class="comment"># 在python中空格也算是一个字符，所以是索引是6而不是5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最后一个字符串界</span></span><br><span class="line">print(a[<span class="number">16</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这段字符串比较短，你可以数出来，但是如果是一篇文章呢</span></span><br><span class="line"><span class="comment"># 所以python中还提供了一种简单的方式：负数</span></span><br><span class="line">print(a[<span class="number">-1</span>])    <span class="comment"># 界</span></span><br><span class="line">print(a[<span class="number">-2</span>])    <span class="comment"># 世</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：通过索引访问时，如果索引不存在将会报错，如下</span></span><br><span class="line">print(a[<span class="number">50</span>])</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">IndexError: string index out of range</span><br></pre></td></tr></table></figure></p>
+<p>通过上面索引的方式我们可以获取字符串中的某个字符，但是如果我们想获取多个字符怎么解决呢？这个时候就要使用切片了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'Hello world,你好 世界'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  获取'Hello world'</span></span><br><span class="line">print(a[<span class="number">0</span>:<span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#  获取'你好 世界'</span></span><br><span class="line">print(a[<span class="number">12</span>:<span class="number">17</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#  通过上面的索引，我们可以尝试使用切片用负数获取最后一个字符</span></span><br><span class="line"><span class="comment">#  获取 '你好 世界'</span></span><br><span class="line">print(a[<span class="number">-5</span>:]) </span><br><span class="line"></span><br><span class="line"><span class="comment">#  和上面类型的写法还有以下几种</span></span><br><span class="line">print(a[:<span class="number">-6</span>])</span><br><span class="line"><span class="comment"># 输出 Hello world</span></span><br><span class="line">    </span><br><span class="line">print(a[<span class="number">5</span>:])</span><br><span class="line"><span class="comment"># 输出 world,你好 世界</span></span><br></pre></td></tr></table></figure>
+<p>思考一下：通过不存在的索引访问字符串会报错，在切片中范围不存在，会怎么样呢？这个留给大家有空测试一下</p>
+<p>小结：通过上面几个案例，我们可以总结以下结论</p>
+<ul>
+<li>字符串中的索引从0开始</li>
+<li>索引和切片中都可以使用负数，表示倒数第几个</li>
+<li>切片中冒号前后的数字可以省略一个，分别表示从头到…或者从…到结束</li>
+</ul>
+<h1 id="字符串的一些基本操作"><a href="#字符串的一些基本操作" class="headerlink" title="字符串的一些基本操作"></a>字符串的一些基本操作</h1><ol>
+<li>字符串的合并</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'hello'</span></span><br><span class="line">b=<span class="string">'world'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  合并两个字符串</span></span><br><span class="line">print(a+b)</span><br><span class="line">helloworld</span><br><span class="line"></span><br><span class="line"><span class="comment"># helloworld中间加空格</span></span><br><span class="line">print(a+<span class="string">' '</span>+b)</span><br><span class="line"></span><br><span class="line"><span class="comment">#  输出10个hello</span></span><br><span class="line">print(a+a+a+a+a+a+...)</span><br><span class="line"></span><br><span class="line"><span class="comment">#  这里我们可以使用乘法，就不用加10次了</span></span><br><span class="line">print(a*<span class="number">10</span>)</span><br><span class="line">hellohellohellohellohellohellohellohellohellohello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上面的结果可能不是我们想要</span></span><br><span class="line"><span class="comment"># 那问题来了</span></span><br><span class="line"><span class="comment"># 这10个hello里面如何添加空格或逗号呢</span></span><br><span class="line">print((a+<span class="string">' '</span>)*<span class="number">10</span>)</span><br><span class="line">hello hello hello hello hello hello hello hello hello hello</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小思考 通过上面的案例我们知道字符串可以相加、可以和数字相乘<br>那字符串和字符串能相乘吗？字符串和0相乘又是什么呢？</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'Hello'</span></span><br><span class="line">b=<span class="string">'World'</span></span><br><span class="line"></span><br><span class="line">print(a*b)</span><br><span class="line">print(a*<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">a*b </span><br><span class="line"><span class="comment"># 会报错，告诉我们字符串不能和字符串相乘</span></span><br><span class="line">TypeError: can<span class="string">'t multiply sequence by non-int of type '</span>st<span class="string">r'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">a*0</span></span><br><span class="line"><span class="string"># 输出 空</span></span><br><span class="line"><span class="string"># 可以通过下面两个函数判断具体输出内容</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 判断字符串的长度</span></span><br><span class="line"><span class="string">print(len(a*0))</span></span><br><span class="line"><span class="string">0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 判断字符串的类型</span></span><br><span class="line"><span class="string">print(type(a*0))</span></span><br><span class="line"><span class="string">str</span></span><br></pre></td></tr></table></figure>
+<h1 id="字符串的一些常用方法"><a href="#字符串的一些常用方法" class="headerlink" title="字符串的一些常用方法"></a>字符串的一些常用方法</h1><blockquote>
+<p>in 、not in判断字符串中是否包含指定的字符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断 hello 是否存在于hello world</span></span><br><span class="line">a=<span class="string">'hello'</span></span><br><span class="line">b=<span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">print(a <span class="keyword">in</span> b)</span><br><span class="line"><span class="comment"># 输出 True</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  判断 hello 是否不存在于 hello world</span></span><br><span class="line">print(a <span class="keyword">not</span> <span class="keyword">in</span> b)</span><br><span class="line"><span class="comment"># 输出 False</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.capitalize() 首字母转为大写其他英文字母转为小写</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'hELLO WORLD 12345'</span></span><br><span class="line">print(a.capitalize())</span><br><span class="line"><span class="comment"># 输出 Hello world 12345</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.swapcase() 大写转为小写,小写转为大写</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'hELLO world'</span></span><br><span class="line">print(a.swapcase())</span><br><span class="line"><span class="comment"># 输出 Hello WORLD</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.lower() 全部转为小写</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'hELLO WORLD 12345'</span></span><br><span class="line">print(a.lower())</span><br><span class="line"><span class="comment">#  输出 hello world 12345</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.upper() 全部转为大写</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'hello World'</span></span><br><span class="line">print(a.upper())</span><br><span class="line"><span class="comment">#  输出 HELLO WORLD</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.title() 每个单词的首字母转为大写</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'this is an apple'</span></span><br><span class="line">print(a.title())</span><br><span class="line"><span class="comment">#  输出 This Is An Apple</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.count() 统计字符串中字符出现的次数</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  .count(&lt;sub&gt;[, &lt;start&gt;[, &lt;end&gt;]])</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">'Hello worLd'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 'l'在字符串中出现的次数</span></span><br><span class="line">print(a.count(<span class="string">'l'</span>))</span><br><span class="line"><span class="comment">#  输出 2   大写的不会被统计 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 'o'在字符串0-5之前出现的次数</span></span><br><span class="line">print(a.count(<span class="string">'o'</span>,<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"><span class="comment"># 输出 1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.endswith() 判断字符串是否以某字符结尾</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .endswith(&lt;sub&gt;[, &lt;start&gt;[, &lt;end&gt;]])</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">'Hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否以'world'结尾</span></span><br><span class="line">print(a.endswith(<span class="string">'world'</span>))</span><br><span class="line"><span class="comment"># 输出 True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断'Hello' 是否以'w'结尾</span></span><br><span class="line">print(a.endswith(<span class="string">'w'</span>,<span class="number">0</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.startswith() 判断字符串是否以某字符开头</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .startswith (&lt;sub&gt;[, &lt;start&gt;[, &lt;end&gt;]])</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">'Hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否以'world'开头</span></span><br><span class="line">print(a.startswith(<span class="string">'world'</span>))</span><br><span class="line"><span class="comment"># 输出 False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断'Hello' 是否以'H'开头</span></span><br><span class="line">print(a.startswith(<span class="string">'H'</span>,<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"><span class="comment"># 输出 True</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.find() 查找字符串的位置</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find(&lt;sub&gt;[, &lt;start&gt;[, &lt;end&gt;]])</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">'Hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找'world'在字符串中的位置</span></span><br><span class="line">print(a.find(<span class="string">'world'</span>))</span><br><span class="line"><span class="comment"># 输出 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果查找的对象不存在则返回-1</span></span><br><span class="line">print(a.find(<span class="string">'Worlds'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># .index()的使用方法和功能类似，但是.index() 查找不到会报错</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.center() 给字符串前后添加空格或字符并让给定字符串居中</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'Hello world'</span></span><br><span class="line">print(a.center(<span class="number">20</span>))</span><br><span class="line"><span class="comment"># 输出 '    Hello world     '</span></span><br><span class="line"></span><br><span class="line">print(a.center(<span class="number">20</span>,<span class="string">'='</span>))</span><br><span class="line"><span class="comment"># 输出 ====Hello world=====</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意给定的长度必须大于字符串的长度</span></span><br><span class="line">print(a.center(<span class="number">5</span>,<span class="string">'='</span>))</span><br><span class="line"><span class="comment"># 这样就没有效果</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.replace() 替换给定字符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .replace(&lt;old&gt;, &lt;new&gt;[, &lt;count&gt;])</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">'Hello world'</span></span><br><span class="line">print(a.replace(<span class="string">'world'</span>,<span class="string">'python'</span>))</span><br><span class="line"><span class="comment"># 输出 Hello python</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.strip() 删除前后空格或移除前后给定字符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'     Hello   world     '</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除前后空格</span></span><br><span class="line">print(a.strip())</span><br><span class="line"><span class="comment"># 输出 Hello world</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除给定字符</span></span><br><span class="line">print(a.strip(<span class="string">'Hd'</span>))</span><br><span class="line"><span class="comment"># 输出 ello worl</span></span><br></pre></td></tr></table></figure>
+<p>关于字符串转化list和string的相互转化，会在后面分享</p>
+<p>好了，本篇字符串的分享到这里就结束了，关于字符串的方法还有很多，不一定要全部记住背会，先大致了解有个印象，在日后使用的时候再去查找，用的多了自然就记住啦</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇分享知识点很多，重点掌握字符串的索引和切片使用方法，关于字符串中的转义字符多多练习应该是没什么问题，python为字符串提供了大量的方法，先大致有个了解，可以方便日后查询</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://img.0558web.com/qrcode.png" alt="Yu Young wechat" style="width: 200px; max-width: 100%;">
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/18/Python高效编程技巧/" rel="next" title="Python高效编程技巧">
+                <i class="fa fa-chevron-left"></i> Python高效编程技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/18/Python的基本数据类型———Number/" rel="prev" title="Python的基本数据类型———Number">
+                Python的基本数据类型———Number <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/02/12/kdrUuq.png" alt="Yu Young">
+            
+              <p class="site-author-name" itemprop="name">Yu Young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iyuyoung" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhuanlan.zhihu.com/coder-house" target="_blank" title="知乎">
+                      
+                        <i class="iconfont icon-zhihu"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://jianshu.com/u/cdd043bb8498" target="_blank" title="简书">
+                      
+                        <i class="iconfont icon-weibiaoti-"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_31655741" target="_blank" title="CSDN">
+                      
+                        <i class="iconfont icon-csdn"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的创建"><span class="nav-number">1.</span> <span class="nav-text">字符串的创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的一些基本操作"><span class="nav-number">2.</span> <span class="nav-text">字符串的一些基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的一些常用方法"><span class="nav-number">3.</span> <span class="nav-text">字符串的一些常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Young</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">13.8k</span>
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
